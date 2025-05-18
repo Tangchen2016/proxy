@@ -7,7 +7,7 @@ mkdir nodes
 # 写入trojan一键脚本
 echo "bash <(curl -sL https://raw.githubusercontent.com/daveleung/hijkpw-scripts-mod/main/trojan_mod1.sh)" > trojan.sh
 
-cat > dynamic_port.sh <<EOF
+cat > dynamic_port.sh <<'EOF'
 # 动态端口映射
 port=$1
 
@@ -28,7 +28,7 @@ iptables -t nat -A PREROUTING -p tcp --dport 10000:30000 -j REDIRECT --to-ports 
 EOF
 
 # 获取trojan配置方法
-cat > get_trojan_config.sh <<EOF
+cat > get_trojan_config.sh <<'EOF'
 #!/bin/bash
 
 # 获取trojan配置
@@ -72,7 +72,7 @@ read_config_file() {
 }
 EOF
 
-cat > setup.sh <<EOF
+cat > setup.sh <<'EOF'
 script_path=$0
 current_dir=$(dirname "$script_path")
 
@@ -117,7 +117,7 @@ $current_dir/dynamic_port.sh $port
 EOF
 
 # 写入订阅配置，每分钟更新端口
-cat > proxy.sh <<EOF
+cat > proxy.sh <<'EOF'
 #!/bin/bash
 script_path=$0
 current_dir=$(dirname "$script_path")

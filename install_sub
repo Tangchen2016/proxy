@@ -5,7 +5,7 @@ ip=${1:-"149.28.57.91"}
 echo "bash <(curl -sL https://raw.githubusercontent.com/daveleung/hijkpw-scripts-mod/main/trojan_mod1.sh)" > trojan.sh
 chmod +x trojan.sh
 
-cat > dynamic_port.sh <<EOF
+cat > dynamic_port.sh <<'EOF'
 # 动态端口映射
 port=$1
 
@@ -25,7 +25,7 @@ done <<< "$rules"
 iptables -t nat -A PREROUTING -p tcp --dport 10000:30000 -j REDIRECT --to-ports $port
 EOF
 
-cat > setup.sh <<EOF
+cat > setup.sh <<'EOF'
 #!/bin/sh
 script_path=$0
 current_dir=$(dirname "$script_path")

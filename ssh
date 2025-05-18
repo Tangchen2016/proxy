@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ssh-keygen -t rsa -P ""
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@149.28.57.91

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rm -r nodes dynamic_port.sh trojan.sh get_trojan_config.sh setup.sh proxy.sh /var/tmp/vmess /var/tmp/clashX.yaml

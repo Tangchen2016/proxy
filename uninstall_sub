@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rm dynamic_port.sh trojan.sh setup.sh

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# proxy一键脚本
+
 mkdir nodes
 
 # 写入trojan一键脚本

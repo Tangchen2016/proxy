@@ -1,6 +1,6 @@
 # 科学上网（支持主备机）
 
-推荐：Ubuntu
+推荐：Ubuntu系统
 
 
 ## 主机
@@ -48,3 +48,11 @@ sh setup.sh
 ```bash
 curl https://raw.githubusercontent.com/Tangchen2016/proxy/refs/heads/main/uninstall_sub | bash
 ```
+
+# VPS
+[akile](https://akile.io/shop/server/)
+
+[vollcloud](https://vollcloud.com/store/hong-kong-cmi-vps-sale)
+
+# 域名
+[namesilo](https://www.namesilo.com/)

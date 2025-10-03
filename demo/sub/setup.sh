@@ -1,7 +1,6 @@
 #!/bin/sh
-set -x
-script_path=bash
-current_dir=$(dirname "")
+script_path=$0
+current_dir=$(dirname "$script_path")
 remote_path=root@149.28.57.91:/root/nodes/
 
 region=$(curl -s ipinfo.io | jq -r '.region | gsub(" "; "_")')
@@ -9,9 +8,8 @@ region=$(curl -s ipinfo.io | jq -r '.region | gsub(" "; "_")')
 # 查询trojan配置并写入nodes.conf文件
 CONFIG_FILE=/usr/local/etc/trojan/config.json
 
-domain=$(grep sni $CONFIG_FILE | cut -d: -f2 | tr -d \",' ')
-
-if [ "" = "" ]; then
+domain=$(grep sni \s$CONFIG_FILE | cut -d: -f2 | tr -d \",' ')
+if [ "$domain" = "" ]; then
   domain=$(grep -m1 cert $CONFIG_FILE | cut -d/ -f5)
 fi
 
@@ -20,9 +18,9 @@ line1=$(grep -n 'password' $CONFIG_FILE | head -n1 | cut -d: -f1)
 line11=$(expr $line1 + 1)
 password=$(sed -n "${line11}p" $CONFIG_FILE | tr -d \",' ')
 
-echo     > /.nodes.conf
+echo $region $domain $port $password > $current_dir/$region.nodes.conf
 
 # 绑定端口
-bash /dynamic_port.sh
+bash $current_dir/dynamic_port.sh $port
 
-scp .nodes.conf
+scp $region.nodes.conf $remote_path

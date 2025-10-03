@@ -1,14 +1,14 @@
 #!/bin/sh
 script_path=$0
 current_dir=$(dirname "$script_path")
-remote_path=root@149.28.57.91:/root/nodes/
+remote_path=root@149.28.57.91:/var/tmp/nodes
 
 region=$(curl -s ipinfo.io | jq -r '.region | gsub(" "; "_")')
 
 # 查询trojan配置并写入nodes.conf文件
 CONFIG_FILE=/usr/local/etc/trojan/config.json
 
-domain=$(grep sni \s$CONFIG_FILE | cut -d: -f2 | tr -d \",' ')
+domain=$(grep sni $CONFIG_FILE | cut -d: -f2 | tr -d \",' ')
 if [ "$domain" = "" ]; then
   domain=$(grep -m1 cert $CONFIG_FILE | cut -d/ -f5)
 fi

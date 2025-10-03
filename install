@@ -170,7 +170,7 @@ random() {
     echo "host: $host"
     echo "port: $port"
     echo "password: $password"
-    trojan_links+="trojan://$password@$host:$randPort#$node_name\n"
+    trojan_links+="trojan://$password@$host:$randPort?allowInsecure=1#$node_name\n"
     clashX_links+="- name: $node_name
   type: trojan
   server: $host

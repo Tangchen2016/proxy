@@ -5,7 +5,7 @@ ip=${1:-"149.28.57.91"}
 echo "bash <(curl -sL https://raw.githubusercontent.com/daveleung/hijkpw-scripts-mod/main/trojan_mod1.sh)" > trojan.sh
 chmod +x trojan.sh
 
-cat > dynamic_port.sh <<'EOF'
+cat > dynamic_port.sh <<EOF
 # 动态端口映射
 port=$1
 
